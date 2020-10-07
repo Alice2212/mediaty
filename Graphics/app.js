@@ -3,8 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var nodemailer = require('nodemailer');
+var dotenv = require('dotenv').config()
+
 var indexRouter = require('./routes/index');
-// var projectRouter = require('./routes/media/project');
+
 
 
 //calling the Media router
@@ -21,10 +24,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // static folder+RT
 
+// using app route
 app.use('/', indexRouter);
-// app.use('/project', projectRouter);
 app.use('/media', tyRouter);
 
 // catch 404 and forward to error handler
@@ -43,4 +46,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// exporting app.js
 module.exports = app;

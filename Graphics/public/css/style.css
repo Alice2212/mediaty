@@ -1734,9 +1734,14 @@ h1, h2, h3, h4, h5,
   .news-1:hover .text {
     opacity: 1;
     visibility: visible; }
+
   .news-1:hover:before {
     opacity: 1;
-    visibility: visible; }
+    visibility: visible;
+  }
+  /* .news-1:hover{
+      transform: scale(7.1); 
+    } */
 
 .white-dots {
   position: relative; }
